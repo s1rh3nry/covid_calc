@@ -1,4 +1,4 @@
-function [mort lgnd]=readPlotMortality(fname)
+function [mort lgnd]=readPlotMortalityCSV(fname)
 
 if exist(fname) != 2
   error(sprintf('No such file: %s', fname));

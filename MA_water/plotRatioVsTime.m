@@ -17,7 +17,7 @@ H{end}.tFit(2) = tPlot(2);
 figure(1, 'position',[20,1000,2000,1600]);
 clf;
 
-[water mort lgndRD] = readPlotData()
+[water mort lgndRD] = readPlotData();
 
 %%% model mortality from water signal
 

@@ -1,0 +1,11 @@
+EDITOR("geany");
+more off;
+
+set(0, "defaultlinelinewidth", 3);
+set(0, "DefaultAxesFontSize", 20);
+
+pkg load io;
+pkg load signal;
+pkg load optim;
+
+% addpath('../util');

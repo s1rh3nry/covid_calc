@@ -15,17 +15,7 @@ H{4}.tFit = [datenum([2022  1 21]) datenum([2022  4  1]) tPlot(2)];
 figure(1, 'position',[20,1000,2000,1600]);
 clf;
 
-% read and plot wastewater data
-subplot(2,1,2);
-fname = '../data/biobot/wastewater_by_county.csv';
-fips = 25025; % location code for Suffolk County, MA (Boston area)
-%fname = '../data/MA/wastewater_2023_02_23.xlsx';
-[water] = readPlotWastewaterCSV(fname, fips);
-
-% read and plot reported deaths
-subplot(2,1,1);
-fname = '../data/MA/mortality.csv';
-[mort lgndRD] = readPlotMortalityCSV(fname);
+[water mort lgndRD] = readPlotData();
 
 %%% model mortality from water signal
 

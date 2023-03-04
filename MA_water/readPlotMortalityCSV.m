@@ -7,11 +7,13 @@ else
 end
 
 % read and plot reported deaths
-data = xlsread(fname, 12);
-data(:,1) += datenum([1900 1 1]) -2;  % adjust time to Octave offset
 
-mort.t = data(:,1)'; % times
-mort.n = data(:,2)'; % counts
+% read csv
+cells = csv2cell(fname, 1);
+
+% convert date
+mort.t = cellfun(@(c) datenum(c, 'yyyy-mm-dd'), cells(:,1));
+mort.n = cell2mat(cells(:,2));
 
 % smooth
 wnd = 7;

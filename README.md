@@ -20,7 +20,7 @@ On Linux:
 ```
 git clone https://github.com/s1rh3nry/covid_calc.git
 cd covid_calc/MA_water
-oct
+octave --no-gui
 ```
 From the *octave* prompt run:
 ```

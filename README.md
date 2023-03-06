@@ -22,7 +22,7 @@ git clone https://github.com/s1rh3nry/covid_calc.git
 cd covid_calc/MA_water
 octave --no-gui
 ```
-From the *octave* prompt run:
+From the *octave* (version 4.2.2) prompt run:
 ```
 plotMWRA
 ```

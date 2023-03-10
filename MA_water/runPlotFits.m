@@ -1,8 +1,9 @@
-function [H, ratio, meanTime, lgnd]=runPlotFits(H, water, mort)
+function [H, ratio, meanTime, lgnd, flag]=runPlotFits(H, water, mort)
 
 lgnd = {};
 ratio    = zeros(length(H),2);
 meanTime = zeros(length(H),1);
+flag     = zeros(length(H),1);
 
 clr = {'c', 'r', 'g', 'm', 'b'};
 
@@ -15,16 +16,19 @@ for i=1:length(H)
   ratio(i,2) = sqrt(H{i}.cov(1,1));
   meanTime(i) = mean(H{i}.tFit(1:2));
   
-  %adjust linestyle based on plausibility
+  %adjust linestyle & comment based on plausibility
   ls = '-';
+  comment = '';
   if (H{i}.p(2) - 2 * sqrt(H{i}.cov(2,2))) > 100 % delay too long
     ls = '--';
+    comment = ' - excessive delay';
+    flag(i) = 1;
   end
   
   j = 1 + mod(i-1, length(clr));
   plot(t,y,[clr{j} ls], 'LineWidth', 5);
   drawnow;
-  lgnd{length(lgnd)+1} = sprintf('Water-based model H%d (fit)', i);
+  lgnd{length(lgnd)+1} = sprintf('Model H%d (fit)%s', i, comment);
   % Allow forecast/hindcast.
   if length(H{i}.tFit) > 2
     if H{i}.tFit(3) > H{i}.tFit(2)
@@ -37,6 +41,6 @@ for i=1:length(H)
     y = waterMortality(H{i}.p, water.n, water.t, t, 0);
     plot(t,y,[clr{j} ':'], 'LineWidth', 5);
     lgnd{length(lgnd)+1} = ...
-       sprintf('Water-based model H%d (%s)', i, str);
+       sprintf('Model H%d (%s)', i, str);
   end
 end

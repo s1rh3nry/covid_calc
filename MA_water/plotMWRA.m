@@ -13,6 +13,7 @@ tMax = max([water.t(end) mort.t(end)]);
 tPlot     = [datenum([2020  2  1]) tMax];
 
 % Model fit start & end
+H = {};
 H{1}.tFit = [tPlot(1)              datenum([2020  6  1])];
 H{2}.tFit = [datenum([2020  9  1]) datenum([2021  3  1])];
 H{3}.tFit = [datenum([2021  5  1]) datenum([2021 12 15])];

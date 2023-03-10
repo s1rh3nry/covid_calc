@@ -16,6 +16,7 @@ daysPerModel = 100;
 nmodel = ceil(range(tPlot)/daysPerModel)
 
 % Model fit start & end
+H = {};
 for i=1:nmodel
   H{i}.tFit = tPlot(1)+daysPerModel*[(i-1)  i];
 end
@@ -27,7 +28,7 @@ H{end}.tFit(2) = tMax;
 
 % run fits and plot
 hold on;
-[H ratio meanTime lgndModels] = runPlotFits(H, water, mort);
+[H ratio meanTime lgndModels flag] = runPlotFits(H, water, mort);
 hold off;
 
 printModelsTable(H);
@@ -41,6 +42,13 @@ ylim([0 200])
 
 subplot(2,1,2);
 errorbar(meanTime, log10(ratio(:,1)), ratio(:,2)./ratio(:,1), '#~b.');
+
+% highlight flagged points
+iflag = find(flag == 1);
+hold on;
+errorbar(meanTime(iflag), log10(ratio(iflag,1)), ratio(iflag,2)./ratio(iflag,1), '#~r.x');
+hold off;
+
 ylim([-3 0]);
 set (gca, 'ytick', [-3 -2 -1 0]);
 set (gca, 'yticklabel', [0.001, 0.01 0.1 1]);

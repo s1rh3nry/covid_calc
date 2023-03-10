@@ -1,4 +1,4 @@
-function [water] = readPlotWastewaterCSV(fname, fips)
+function [water] = readPlotWastewaterCSV(fname)
 
 % file contents (as of March 1, 2023):
 % sometimes the first column (line number) is absent
@@ -22,9 +22,7 @@ n = [];
 % read csv
 cells = csv2cell(fname, 1);
 
-%filter by fips
-fips1 = cell2mat(cells(:,end));
-cells = cells(find(fips1 == fips),:);
+%extract location name
 name = cells(1,end-1){1};
 
 % convert date

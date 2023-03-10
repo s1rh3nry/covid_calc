@@ -2,9 +2,8 @@ function [water mort lgndRD] = readPlotData()
 
 % read and plot wastewater data
 subplot(2,1,2);
-fname = '../data/biobot/wastewater_by_county.csv';
-fips = 25025; % location code for Suffolk County, MA (Boston area)
-[water] = readPlotWastewaterCSV(fname, fips);
+fname = '../data/biobot/wastewater.csv';
+[water] = readPlotWastewaterCSV(fname);
 
 % read and plot reported deaths
 subplot(2,1,1);

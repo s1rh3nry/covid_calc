@@ -1,6 +1,7 @@
 function [water] = readPlotWastewaterCSV(fname, fips)
 
 % file contents (as of March 1, 2023):
+% sometimes the first column (line number) is absent
 
 % ,sampling_week,effective_concentration_rolling_average,region,state,name,fipscode
 % 0,2020-01-15,0.0,Northeast,MA,"Suffolk County, MA",25025
@@ -22,13 +23,13 @@ n = [];
 cells = csv2cell(fname, 1);
 
 %filter by fips
-fips1 = cell2mat(cells(:,7));
+fips1 = cell2mat(cells(:,end));
 cells = cells(find(fips1 == fips),:);
-name = cells(1,6){1};
+name = cells(1,end-1){1};
 
 % convert date
-t = cellfun(@(c) datenum(c, 'yyyy-mm-dd'), cells(:,2));
-n = cell2mat(cells(:,3));
+t = cellfun(@(c) datenum(c, 'yyyy-mm-dd'), cells(:,end-5));
+n = cell2mat(cells(:,end-4));
 
 %interpolate
 water.t = t(1):t(end);

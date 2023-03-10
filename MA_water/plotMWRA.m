@@ -1,9 +1,9 @@
-EXPORT_PLOT = 0; % set to one to export image
+EXPORT_PLOT = 1; % set to one to export image
 
 % set various times
 
 % plot range
-tPlot     = [datenum([2020  2  1]) datenum([2023  3  1])];
+tPlot     = [datenum([2020  2  1]) datenum([2023  6  1])];
 
 % Model fit start & end
 H{1}.tFit = [tPlot(1)              datenum([2020  6  1])];
@@ -18,13 +18,6 @@ clf;
 [water mort lgndRD] = readPlotData();
 
 %%% model mortality from water signal
-
-% remove non-overlapping data at end
-if water.t(end) < mort.t(end)
-   d = mort.t(end) - water.t(end);
-   mort.t = mort.t(1:(end-d));
-   mort.n = mort.n(1:(end-d));
-end
 
 hold on;
 clr = {'c', 'r', 'g', 'm', 'b'};

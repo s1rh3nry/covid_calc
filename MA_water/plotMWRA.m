@@ -18,39 +18,13 @@ H{2}.tFit = [datenum([2020  9  1]) datenum([2021  3  1])];
 H{3}.tFit = [datenum([2021  5  1]) datenum([2021 12 15])];
 H{4}.tFit = [datenum([2022  1 21]) datenum([2022  4  1]) tPlot(2)];
 
-%%% model mortality from water signal
-
-hold on;
-clr = {'c', 'r', 'g', 'm', 'b'};
-
-guess = [0.1 15]; % a reasonable starting point
-
 H{1}.tFit(1) = max([water.t(1) mort.t(1)]); % adjust start of H1 fit to data
 
-% run fits and plot
-lgndModels = {};
-for i=1:length(H)  
-  [t y H{i}.p H{i}.cor H{i}.cov ff] = fitMWRA(guess, mort, water, H{i}.tFit);
-                                 
-  plot(t,y,clr{i}, 'LineWidth', 5);
-  drawnow;
-  lgndModels{length(lgndModels)+1} = sprintf('Water-based model H%d (fit)', i);
-  % Allow forecast/hindcast.
-  if length(H{i}.tFit) > 2
-    if H{i}.tFit(3) > H{i}.tFit(2)
-      t = H{i}.tFit(2):H{i}.tFit(3);
-      str = 'forecast';
-    else
-      t = H{i}.tFit(3):H{i}.tFit(1);
-      str = 'hindcast';
-    end
-    y = waterMortality(H{i}.p, water.n, water.t, t, 0);
-    plot(t,y,[clr{i} ':'], 'LineWidth', 5);
-    lgndModels{length(lgndModels)+1} = ...
-       sprintf('Water-based model H%d (%s)', i, str);
-  end
-end
+%%% model mortality from water signal
 
+% run fits and plot
+hold on;
+[H ratio meanTime lgndModels] = runPlotFits(H, water, mort);
 hold off;
 
 printModelsTable(H);

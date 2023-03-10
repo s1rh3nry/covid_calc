@@ -28,4 +28,5 @@ grid on
 
 xlabel('Date (month/day)');
 lgnd = {'COVID-19 daily deaths (7 day avg.)'};
+datetick('x');
 drawnow;

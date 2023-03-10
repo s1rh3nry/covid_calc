@@ -13,10 +13,16 @@ for i=1:length(H)
   [t y H{i}.p H{i}.cor H{i}.cov ff] = fitMWRA(guess, mort, water, H{i}.tFit);
   ratio(i,1) = H{i}.p(1);
   ratio(i,2) = sqrt(H{i}.cov(1,1));
-  
   meanTime(i) = mean(H{i}.tFit(1:2));
+  
+  %adjust linestyle based on plausibility
+  ls = '-';
+  if (H{i}.p(2) - 2 * sqrt(H{i}.cov(2,2))) > 100 % delay too long
+    ls = '--';
+  end
+  
   j = 1 + mod(i-1, length(clr));
-  plot(t,y,clr{j}, 'LineWidth', 5);
+  plot(t,y,[clr{j} ls], 'LineWidth', 5);
   drawnow;
   lgnd{length(lgnd)+1} = sprintf('Water-based model H%d (fit)', i);
   % Allow forecast/hindcast.

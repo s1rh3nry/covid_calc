@@ -31,7 +31,7 @@ name = cells(1,end-1){1};
 t = cellfun(@(c) datenum(c, 'yyyy-mm-dd'), cells(:,end-5));
 n = cell2mat(cells(:,end-4));
 
-%interpolate
+%interpolate to daily grid
 water.t = t(1):t(end);
 water.n = interp1(t, n, water.t);
 

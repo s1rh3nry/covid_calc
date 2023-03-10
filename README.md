@@ -26,11 +26,16 @@ From the *octave* (version 4.2.2) prompt run:
 ```
 plotMWRA
 ```
+
 ### Data sources
 [Wastewater from Biobot Analytics](https://github.com/biobotanalytics/covid19-wastewater-data) - see also [here](https://www.mwra.com/biobot/biobotdata.htm).
 
 [Mortality from the State of Massachusetts](https://www.mass.gov/info-details/covid-19-response-reporting) - download *COVID-19 Raw Data*, updated weekly.
 
+To update data on Linux, from *covid_calc* run:
+```
+./getData.sh
+```
 ### References
 1. Claire Duvallet, Fuqing Wu, Kyle A. McElroy, Maxim Imakaev, et al. *Nationwide Trends in COVID-19 Cases and SARS-CoV‐2 RNA Wastewater Concentrations in the United States*, [ACS EST Water 2022, 2, 1899−1909](https://pubs.acs.org/action/showCitFormats?doi=10.1021/acsestwater.1c00434)
 

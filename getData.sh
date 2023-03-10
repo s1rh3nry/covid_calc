@@ -44,5 +44,8 @@ echo $FNAME $(stat --format=%s "$FNAME") bytes, modified $MOD
 FNAME2="biobot/wastewater.csv"
 COUNTY="Suffolk County, MA"
 echo "Filter wastewater data for $COUNTY"
-grep "$COUNTY" $FNAME > $FNAME2
+# copy header line
+head -n 1 $FNAME > $FNAME2
+#filter
+grep "$COUNTY" $FNAME >> $FNAME2
 echo $FNAME $(stat --format=%s "$FNAME2") bytes, modified $MOD

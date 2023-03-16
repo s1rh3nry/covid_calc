@@ -1,4 +1,4 @@
-EXPORT_PLOT = 0; % set to one to export image
+EXPORT_PLOT = 1; % set to one to export image
 
 %setup figure size/position in pixels
 figure(1, 'position',[20,1000,2000,1600]);

@@ -13,6 +13,8 @@ Each model is a single-pole [linear time-invariant system](https://en.wikipedia.
 |    H3|01-May-2021|15-Dec-2021| 0.033 [0.0315, 0.0348]|32.6 [28.6, 36.5]|
 |    H4|21-Jan-2022|01-Apr-2022| 0.017 [0.0160, 0.0176]|19.6 [17.7, 21.4]|
 
+Reference 2 discusses the changing transfer function from wastewater concentration to clinical cases and mortality during 2020.
+
 ### Running the calculation
 Requires [GNU Octave](https://octave.org/) and the packages *io*, *optim*, and *signal*.
 
@@ -22,11 +24,11 @@ git clone https://github.com/s1rh3nry/covid_calc.git
 cd covid_calc/MA_water
 octave --no-gui
 ```
-From the *octave* (version 4.2.2) prompt run:
+From the *octave* prompt run:
 ```
 plotMWRA
 ```
-
+(Tested on versions 4.2.2 and 5.2.0)
 ### Data sources
 [Wastewater from Biobot Analytics](https://github.com/biobotanalytics/covid19-wastewater-data) - see also [here](https://www.mwra.com/biobot/biobotdata.htm).
 
@@ -38,7 +40,7 @@ To update data on Linux, from *covid_calc* run:
 ```
 ### References
 1. Claire Duvallet, Fuqing Wu, Kyle A. McElroy, Maxim Imakaev, et al. *Nationwide Trends in COVID-19 Cases and SARS-CoV‐2 RNA Wastewater Concentrations in the United States*, [ACS EST Water 2022, 2, 1899−1909](https://pubs.acs.org/action/showCitFormats?doi=10.1021/acsestwater.1c00434)
-
+2. Amy Xiao, Fuqing Wu, Mary Bushman, et al. *Metrics to relate COVID-19 wastewater data to clinical testing dynamics*, [Water Research 212 (2022) 118070](https://doi.org/10.1016/j.watres.2022.118070)
 ### Licenses
 - The calculation code is free to use and distribute without restrictions under [MIT-0](LICENSE) license.
 - Wastewater data is produced by Biobot Analytics and licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).

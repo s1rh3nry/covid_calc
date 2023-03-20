@@ -13,7 +13,7 @@ tMax = min([water.t(end) mort.t(end)]);
 tPlot     = [datenum([2020  3  1]) tMax];
 
 daysPerModel = 100;
-nmodel = ceil(range(tPlot)/daysPerModel)
+nmodel = floor(range(tPlot)/daysPerModel)
 
 % Model fit start & end
 H = {};
@@ -34,11 +34,7 @@ hold off;
 printModelsTable(H);
 
 % beautify graphs
-subplot(2,1,1);
-legend([lgndRD lgndModels], 'Location', 'NorthEast');
-title(sprintf('Association of MA COVID-19 mortality with viral RNA in wastewater'));
-ylabel(sprintf('Daily deaths (see legend)'))
-ylim([0 200])
+beautify(tPlot, tMax, [lgndRD lgndModels]);
 
 subplot(2,1,2);
 errorbar(meanTime, log10(ratio(:,1)), ratio(:,2)./ratio(:,1), '#~b.');
@@ -53,8 +49,6 @@ ylim([-3 0]);
 set (gca, 'ytick', [-3 -2 -1 0]);
 set (gca, 'yticklabel', [0.001, 0.01 0.1 1]);
 ylabel(sprintf('Deaths per wastewater RNA concentration'))
-
-makeMonthLabels(tPlot(1), tPlot(2));
 
 if EXPORT_PLOT == 1
   % generate image file

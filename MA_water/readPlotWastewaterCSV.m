@@ -9,7 +9,6 @@ function [water] = readPlotWastewaterCSV(fname)
 % 2,2020-01-29,0.0,Northeast,MA,"Suffolk County, MA",25025
 % 3,2020-02-05,0.0,Northeast,MA,"Suffolk County, MA",25025
 % 4,2020-02-12,0.0,Northeast,MA,"Suffolk County, MA",25025
-% 5,2020-02-19,0.0,West,CA,"San Luis Obispo County, CA",6079
 % 6,2020-02-19,0.0,Northeast,MA,"Suffolk County, MA",25025
 % 7,2020-02-26,0.0,Northeast,MA,"Suffolk County, MA",25025
 % 8,2020-03-04,1.4501821146335496,Northeast,MA,"Suffolk County, MA",25025

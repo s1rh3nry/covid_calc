@@ -1,4 +1,4 @@
-EXPORT_PLOT = 1; % set to one to export image
+EXPORT_PLOT = 0; % set to one to export image
 
 %setup figure size/position in pixels
 figure(1, 'position',[20,1000,2000,1600]);
@@ -31,13 +31,7 @@ hold off;
 printModelsTable(H);
 
 % beautify graphs
-legend([lgndRD lgndModels], 'Location', 'NorthEast');
-title(sprintf('Association of MA COVID-19 mortality with viral RNA in wastewater (through %s)', ...
-              datestr(tMax)));
-ylabel(sprintf('Daily deaths (see legend)'))
-ylim([0 200])
-
-makeMonthLabels(tPlot(1), tPlot(2));
+beautify(tPlot, tMax, [lgndRD lgndModels]);
 
 if EXPORT_PLOT == 1
   % generate image file

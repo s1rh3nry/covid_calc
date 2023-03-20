@@ -1,6 +1,6 @@
-function makeMonthLabels(tMinPlot, tMaxPlot)
+function beautify(tPlot, tMax, lgnd)
 % customize x-axis labels
-nMonths = round((tMaxPlot-tMinPlot)/365.25*12);
+nMonths = round((tPlot(2)-tPlot(1))/365.25*12);
 d = 1;
 if nMonths > 15
   d = 2;
@@ -21,8 +21,15 @@ end
 
 for i=1:2
   subplot(2,1,i)
-  xlim([tMinPlot tMaxPlot])
+  xlim([tPlot(1) tPlot(2)])
   set (gca, 'xtick', xticks);
   set (gca, 'xticklabel', xtickLbl);
   xlabel('Date (first day of month-year)');
 end
+
+subplot(2,1,1)
+legend(lgnd, 'Location', 'NorthEast');
+title(sprintf('Association of MA COVID-19 mortality with viral RNA in wastewater (through %s)', ...
+              datestr(tMax)));
+ylabel(sprintf('Daily deaths (see legend)'))
+ylim([0 200])

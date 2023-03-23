@@ -31,6 +31,12 @@ hold on;
 [H ratio meanTime lgndModels flag] = runPlotFits(H, water, mort);
 hold off;
 
+for i=1:length(H)  
+  ratio(i,1) = H{i}.p(1);
+  ratio(i,2) = sqrt(H{i}.cov(1,1));
+  meanTime(i) = mean(H{i}.tFit(1:2));
+end
+
 printModelsTable(H);
 
 % beautify graphs

@@ -1,12 +1,12 @@
-function [t F params CORP COVP fitfunc] = fitMWRA(guess, mort, water, tFit)
+function [params CORP COVP fitfunc] = fitMWRA(guess, mort, water, tFit)
 
 % Perform least-squares fitting of model parameters.
 % The goal is to reproduce mortality data (mort) 
 % by running wastewater RNA counts (water) through the model.
 % Start and end times are in tFit.
 
-i0 = find(mort.t == tFit(1))
-i1 = find(mort.t == tFit(2))
+i0 = find(mort.t == tFit(1));
+i1 = find(mort.t == tFit(2));
 
 % target output for model
 t = mort.t(i0:i1);
@@ -27,9 +27,9 @@ fitfunc = @(t, p) (waterMortality(p, nWater, tWater, t, 0));
                 leasqr(t, y, guess, fitfunc);
 
 % show correlation and covariance matrix
-CORP
-COVP
+CORP;
+COVP;
 
 % show model system
-tf([0 params(1)/params(2)], [1 1/params(2)])
+tf([0 params(1)/params(2)], [1 1/params(2)]);
 

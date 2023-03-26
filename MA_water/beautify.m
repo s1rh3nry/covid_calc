@@ -28,7 +28,9 @@ for i=1:2
 end
 
 subplot(2,1,1)
-legend(lgnd, 'Location', 'NorthEast');
+if nargin > 2
+  legend(lgnd, 'Location', 'NorthEast');
+end
 title(sprintf('Association of MA COVID-19 mortality with viral RNA in wastewater (through %s)', ...
               datestr(tMax)));
 ylabel(sprintf('Daily deaths (see legend)'))

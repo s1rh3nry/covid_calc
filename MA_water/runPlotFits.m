@@ -28,6 +28,7 @@ for i=1:length(H)
   
   if H{i}.needFit
     % fit the model
+    printf('Fit H{%d}\n', i);
     [H{i}.p H{i}.cor H{i}.cov ff] = fitMWRA(H{i}.p, mort, water, H{i}.tFit);
     H{i}.p
   end

@@ -1,7 +1,7 @@
 function [water] = readPlotWastewaterCSV(fname)
 
 % file contents (as of March 1, 2023):
-% sometimes the first column (line number) is absent
+% sometimes the first column (line number) is absent, so count columns from right end.
 
 % ,sampling_week,effective_concentration_rolling_average,region,state,name,fipscode
 % 0,2020-01-15,0.0,Northeast,MA,"Suffolk County, MA",25025

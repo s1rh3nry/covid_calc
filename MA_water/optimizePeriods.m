@@ -1,27 +1,22 @@
 
 %setup figure size/position in pixels
-figure(1, 'position',[20,1000,1000,1000]);
+figure(1, 'position',[20,1000,1500,1000]);
 clf;
-figure(2, 'position',[1150,1000,1000,1000]);
+figure(2, 'position',[1600,1000,1000,1000]);
 clf;
 figure(1);
 
 [water mort lgndRD] = readPlotData();
-
-% set various times
-tMax = max([water.t(end) mort.t(end)]);
-
-% plot range
-tPlot     = [datenum([2020  2  1]) tMax];
+tEnd = min([water.t(end) mort.t(end)]) - mort.t(1);
 
 objective_function = @ (p) v2c(p, water, mort, 1);
 
 vOld = [];
 
-v00 = [0 69; 156 332; 400 646; 677 1091]
+v00 = [0 69; 156 340; 345 646; 677 tEnd]
 N = size(v00,1);
 nplot = 2*N;
-delta = -25:50;
+delta = -50:50;
 
 for r=1:N
 for j=1:2
@@ -36,6 +31,14 @@ for j=1:2
     v = v00;
     v(r, j) += delta(i);
     v
+	  % prevent overlap by adjusting adjacent period
+	  if j==1 && r>1
+	    v(r-1,2) = min([v(r-1,2) v(r,j)-1]);
+	  end
+
+	  if j==2 && r<N
+	    v(r+1,1) = max([v(r+1,1) v(r,j)+1]);
+	  end	  
 	  
 	  v = reshape(v', 1, [])
 	  c(i) = objective_function(v);
@@ -58,3 +61,4 @@ for j=1:2
 	drawnow;
 end
 end
+

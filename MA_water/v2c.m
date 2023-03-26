@@ -9,7 +9,7 @@ v = round(v);
 % item 2 - (for gap) additional penalty per (daily deaths)^2
 %          Peaks are most important to cover.
 %
-costFactor = [5 0.1];
+costFactor = [10 0.05];
 
 % Model fit start & end
 global guesses = [];
@@ -55,6 +55,10 @@ for i=1:N
     guesses(i, :) = [0.1 10];
     H{i}.needFit = 1;
   end
+  
+  if NOPLOT==0
+    H{i}.needFit = 1;
+  end
 end
 
 guesses
@@ -77,10 +81,8 @@ for i=1:N
   i1 = find(mort.t == t2);
   printf('gap from %6d to %6d\n', i0, i1);
   
-  if i1 > i0
-    costGaps += (i1-i0)*costFactor(1) + sum(mort.n(i0:i1).^2)*costFactor(2);
-  else
-    costGaps += (i0-i1+1)*costFactor(1); % prevent overlap
+  if i1 > i0+1
+    costGaps += (i1-i0-1)*costFactor(1) + sum(mort.n(i0:i1).^2)*costFactor(2);
   end
 end
 
@@ -105,3 +107,10 @@ end
 
 printf('cost: %9.3f,   gaps: %9.3f,   fits: %9.3f\n', ...
        cost, costGaps, cost-costGaps);
+       
+if NOPLOT == 0
+  tMax = max([water.t(end) mort.t(end)]);
+  tPlot     = [datenum([2020  2  1]) tMax];
+  beautify(tPlot, tMax);
+  printModelsTable(H);
+end

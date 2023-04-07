@@ -28,7 +28,13 @@ for i=1:length(H)
   j = 1 + mod(i-1, length(clr));
   plot(t,y,[clr{j} ls], 'LineWidth', 5);
   drawnow;
-  lgnd{length(lgnd)+1} = sprintf('Model H%d (fit)%s', i, comment);
+  rh = ratio(i,1)+2*ratio(i,2);
+  rl = ratio(i,1)-2*ratio(i,2);
+  str2 = sprintf('%.4f deaths per wastewater RNA conc. 95%% CI: [%.4f, %.4f]', ...
+                 H{i}.p(1), rl, rh);
+  
+  lgnd{length(lgnd)+1} = sprintf('Single-pole model H%d (fit)%s, %s', ...
+                                 i, comment, str2);
   % Allow forecast/hindcast.
   if length(H{i}.tFit) > 2
     if H{i}.tFit(3) > H{i}.tFit(2)
@@ -41,6 +47,7 @@ for i=1:length(H)
     y = waterMortality(H{i}.p, water.n, water.t, t, 0);
     plot(t,y,[clr{j} ':'], 'LineWidth', 5);
     lgnd{length(lgnd)+1} = ...
-       sprintf('Model H%d (%s)', i, str);
+       sprintf('Single-pole model H%d (%s), %s', ...
+               i, str);
   end
 end

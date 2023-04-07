@@ -6,12 +6,12 @@ This calculation reproduces Massachusetts COVID-19 mortality data from wastewate
 
 Each model is a single-pole [linear time-invariant system](https://en.wikipedia.org/wiki/Linear_time-invariant_system), equivalent to an RC circuit and suitable for time-decay processes.  Parameters are below, including 95% confidence intervals in square brackets.
 
-| Model|       From|         To|Daily deaths per RNA/ml|     Delay (days)|
+| Model|       From|         To|      Deaths per RNA/ml|     Delay (days)|
 |------|-----------|-----------|-----------------------|-----------------|
-|    H1|10-Mar-2020|01-Jun-2020| 0.559 [0.5336, 0.5839]|14.8 [13.0, 16.7]|
-|    H2|01-Sep-2020|01-Mar-2021| 0.058 [0.0569, 0.0601]|10.4 [ 8.9, 11.9]|
-|    H3|01-May-2021|15-Dec-2021| 0.033 [0.0315, 0.0348]|32.6 [28.6, 36.5]|
-|    H4|21-Jan-2022|01-Apr-2022| 0.017 [0.0160, 0.0176]|19.6 [17.7, 21.4]|
+|    H1|10-Mar-2020|01-Jun-2020| 0.563 [0.5364, 0.5896]|15.5 [13.5, 17.5]|
+|    H2|01-Sep-2020|01-Mar-2021| 0.059 [0.0570, 0.0602]|10.9 [ 9.4, 12.5]|
+|    H3|01-May-2021|15-Dec-2021| 0.033 [0.0313, 0.0346]|33.3 [29.4, 37.3]|
+|    H4|21-Jan-2022|01-Apr-2022| 0.017 [0.0163, 0.0179]|19.7 [17.8, 21.5]|
 
 Reference 2 discusses the changing transfer function from wastewater concentration to clinical cases and mortality during 2020.
 

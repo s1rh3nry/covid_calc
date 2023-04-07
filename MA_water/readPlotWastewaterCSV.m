@@ -43,6 +43,7 @@ ylbl = get (gca, 'yticklabel');
 ylbl{1} = '0';
 set (gca, 'yticklabel', ylbl);
 datetick('x');
-legend(sprintf('Wastewater %s', name), 'Location', 'NorthEast');
+title('Wastewater SARS-CoV-2 RNA concentration');
+legend(sprintf('%s', name), 'Location', 'NorthEast');
 ylabel('RNA concentration [counts/ml]');
 grid on;

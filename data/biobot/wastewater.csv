@@ -1,12 +1,5 @@
 sampling_week,effective_concentration_rolling_average,region,state,name,fipscode
-2020-01-15,0.0,Northeast,MA,"Suffolk County, MA",25025
-2020-01-22,0.0,Northeast,MA,"Suffolk County, MA",25025
-2020-01-29,0.0,Northeast,MA,"Suffolk County, MA",25025
-2020-02-05,0.0,Northeast,MA,"Suffolk County, MA",25025
-2020-02-12,0.0,Northeast,MA,"Suffolk County, MA",25025
-2020-02-19,0.0,Northeast,MA,"Suffolk County, MA",25025
-2020-02-26,0.0,Northeast,MA,"Suffolk County, MA",25025
-2020-03-04,1.4501821146335496,Northeast,MA,"Suffolk County, MA",25025
+2020-03-04,1.7402185375602597,Northeast,MA,"Suffolk County, MA",25025
 2020-03-11,12.590344274524805,Northeast,MA,"Suffolk County, MA",25025
 2020-03-18,58.02332206210307,Northeast,MA,"Suffolk County, MA",25025
 2020-03-25,159.45481288512028,Northeast,MA,"Suffolk County, MA",25025
@@ -111,7 +104,7 @@ sampling_week,effective_concentration_rolling_average,region,state,name,fipscode
 2022-02-16,141.01967739757796,Northeast,MA,"Suffolk County, MA",25025
 2022-02-23,116.5159375749806,Northeast,MA,"Suffolk County, MA",25025
 2022-03-02,116.07994841005888,Northeast,MA,"Suffolk County, MA",25025
-2022-03-09,126.98679569370532,Northeast,MA,"Suffolk County, MA",25025
+2022-03-09,126.98679569370536,Northeast,MA,"Suffolk County, MA",25025
 2022-03-16,146.34491305375477,Northeast,MA,"Suffolk County, MA",25025
 2022-03-23,197.4519122630559,Northeast,MA,"Suffolk County, MA",25025
 2022-03-30,309.46749056080006,Northeast,MA,"Suffolk County, MA",25025
@@ -119,9 +112,9 @@ sampling_week,effective_concentration_rolling_average,region,state,name,fipscode
 2022-04-13,621.5985804862177,Northeast,MA,"Suffolk County, MA",25025
 2022-04-20,591.0953634973199,Northeast,MA,"Suffolk County, MA",25025
 2022-04-27,613.2791681625837,Northeast,MA,"Suffolk County, MA",25025
-2022-05-04,815.231295979739,Northeast,MA,"Suffolk County, MA",25025
-2022-05-11,1127.4561377269958,Northeast,MA,"Suffolk County, MA",25025
-2022-05-18,1050.593833598449,Northeast,MA,"Suffolk County, MA",25025
+2022-05-04,815.2312959797391,Northeast,MA,"Suffolk County, MA",25025
+2022-05-11,1127.4561377269963,Northeast,MA,"Suffolk County, MA",25025
+2022-05-18,1050.5938335984492,Northeast,MA,"Suffolk County, MA",25025
 2022-05-25,911.7389434770748,Northeast,MA,"Suffolk County, MA",25025
 2022-06-01,775.8976415119641,Northeast,MA,"Suffolk County, MA",25025
 2022-06-08,685.1840115244746,Northeast,MA,"Suffolk County, MA",25025
@@ -130,7 +123,7 @@ sampling_week,effective_concentration_rolling_average,region,state,name,fipscode
 2022-06-29,682.3868616510968,Northeast,MA,"Suffolk County, MA",25025
 2022-07-06,704.5025121349428,Northeast,MA,"Suffolk County, MA",25025
 2022-07-13,686.0341146812822,Northeast,MA,"Suffolk County, MA",25025
-2022-07-20,612.6443906940981,Northeast,MA,"Suffolk County, MA",25025
+2022-07-20,612.6443906940982,Northeast,MA,"Suffolk County, MA",25025
 2022-07-27,574.0410532697671,Northeast,MA,"Suffolk County, MA",25025
 2022-08-03,544.6899714023787,Northeast,MA,"Suffolk County, MA",25025
 2022-08-10,524.4052508114337,Northeast,MA,"Suffolk County, MA",25025
@@ -165,5 +158,10 @@ sampling_week,effective_concentration_rolling_average,region,state,name,fipscode
 2023-03-01,468.2082610612129,Northeast,MA,"Suffolk County, MA",25025
 2023-03-08,370.8040241679034,Northeast,MA,"Suffolk County, MA",25025
 2023-03-15,377.1366373329363,Northeast,MA,"Suffolk County, MA",25025
-2023-03-22,365.20927168697904,Northeast,MA,"Suffolk County, MA",25025
-2023-03-29,229.42687735177608,Northeast,MA,"Suffolk County, MA",25025
+2023-03-22,376.5612850242735,Northeast,MA,"Suffolk County, MA",25025
+2023-03-29,277.5675680042812,Northeast,MA,"Suffolk County, MA",25025
+2023-04-05,238.68828853750844,Northeast,MA,"Suffolk County, MA",25025
+2023-04-12,200.309314117339,Northeast,MA,"Suffolk County, MA",25025
+2023-04-19,182.66702463294484,Northeast,MA,"Suffolk County, MA",25025
+2023-04-26,201.60857401812032,Northeast,MA,"Suffolk County, MA",25025
+2023-05-03,211.584105388302,Northeast,MA,"Suffolk County, MA",25025

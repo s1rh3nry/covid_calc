@@ -8,12 +8,12 @@ Each model is a single-pole [linear time-invariant system](https://en.wikipedia.
 
 | Model|       From|         To|      Deaths per RNA/ml|     Delay (days)|
 |------|-----------|-----------|-----------------------|-----------------|
-|    H1|10-Mar-2020|01-Jun-2020| 0.563 [0.5364, 0.5896]|15.5 [13.5, 17.5]|
+|    H1|10-Mar-2020|01-Jun-2020| 0.563 [0.5364, 0.5897]|15.5 [13.5, 17.5]|
 |    H2|01-Sep-2020|01-Mar-2021| 0.059 [0.0570, 0.0602]|10.9 [ 9.4, 12.5]|
 |    H3|01-May-2021|15-Dec-2021| 0.033 [0.0313, 0.0346]|33.3 [29.4, 37.3]|
 |    H4|21-Jan-2022|01-Apr-2022| 0.017 [0.0163, 0.0179]|19.7 [17.8, 21.5]|
 
-Reference 2 discusses the changing transfer function from wastewater concentration to clinical cases and mortality during 2020.
+Reference 2 discusses the changing transfer function from wastewater concentration to clinical cases and mortality during from H1 to H2.
 
 ### Running the calculation
 Requires [GNU Octave](https://octave.org/) and the packages *io*, *optim*, and *signal*.
@@ -28,7 +28,7 @@ From the *octave* prompt run:
 ```
 plotMWRA
 ```
-(Tested on versions 4.2.2 and 5.2.0)
+(Tested on versions 4.2.2, 5.2.0 and 6.4.0)
 ### Data sources
 [Wastewater from Biobot Analytics](https://github.com/biobotanalytics/covid19-wastewater-data) - see also [here](https://www.mwra.com/biobot/biobotdata.htm).
 

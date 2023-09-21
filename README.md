@@ -14,7 +14,7 @@ Each model is a single-pole [linear time-invariant system](https://en.wikipedia.
 |    H4|21-Jan-2022|01-Jun-2023| 0.015 [0.0148, 0.0155]|21.6 [20.1, 23.0]|
 |    H5|01-Jul-2023|11-Sep-2023| 0.005 [0.0028, 0.0073]|21.4 [-24.6, 67.3]|
 
-Reference 2 discusses the changing transfer function from wastewater concentration to clinical cases and mortality (H1 to H2) and speculates about possible causes.  Changing clinical practice and evolving disease demographics and are mentioned.
+Reference 2 discusses the changing transfer function from wastewater concentration to clinical cases and mortality (H1 to H2) and speculates about possible causes.  Changing clinical practice and evolving disease demographics are mentioned.
 
 ### Running the calculation
 Requires [GNU Octave](https://octave.org/) and the packages *io*, *optim*, and *signal*.

@@ -17,7 +17,8 @@ H = {};
 H{1}.tFit = [tPlot(1)              datenum([2020  6  1])];
 H{2}.tFit = [datenum([2020  9  1]) datenum([2021  3  1])];
 H{3}.tFit = [datenum([2021  5  1]) datenum([2021 12 15])];
-H{4}.tFit = [datenum([2022  1 21]) datenum([2022  4  1]) tPlot(2)];
+H{4}.tFit = [datenum([2022  1 21]) datenum([2023  6  1])];
+H{5}.tFit = [datenum([2023  7  1]) tPlot(2)];
 
 H{1}.tFit(1) = max([water.t(1) mort.t(1)]); % adjust start of H1 fit to data
 

@@ -31,6 +31,7 @@ n = cell2mat(cells(:,end-4));
 %interpolate to daily grid
 water.t = t(1):t(end);
 water.n = interp1(t, n, water.t);
+water.name = name;
 
 % plot with vertical log scale
 % take care of zeros by showing them at the lower limit

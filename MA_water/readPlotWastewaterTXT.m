@@ -136,7 +136,7 @@ unc = (max(h)-min(h))/2;
 
 printf('%d number positions (%d days)\n mean=%.2f, median=%d, %.1f +/- %.1f [%d...%d]\n', ...
         length(h), length(water.t), mean(h), median(h), mid, unc, min(h), max(h))
-%return
+return
 
 %for code development: plot histogram of number positions
 clf;

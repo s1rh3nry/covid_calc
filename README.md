@@ -31,7 +31,9 @@ plotMWRA
 ```
 (Tested on versions 4.2.2, 5.2.0 and 6.4.0)
 ### Data sources
-Wastewater from Biobot Analytics (this github repository is nolonger available).  [Current data](https://www.mwra.com/biobot/biobotdata.htm).
+Wastewater (blue data points above) from Biobot Analytics (this github repository is no longer available).  
+
+[Current wastewater data](https://www.mwra.com/biobot/biobotdata.htm) (red curve above).
 
 [Mortality from the State of Massachusetts](https://www.mass.gov/info-details/covid-19-response-reporting) - download *COVID-19 Raw Data*, updated weekly.  Note that year 2020 data is being changed in 2023.
 

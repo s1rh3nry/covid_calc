@@ -11,8 +11,8 @@ Each model is a single-pole [linear time-invariant system](https://en.wikipedia.
 |    H1|10-Mar-2020|01-Jun-2020| 0.563 [0.5365, 0.5899]|15.5 [13.5, 17.5]|
 |    H2|01-Sep-2020|01-Mar-2021| 0.059 [0.0571, 0.0603]|11.0 [ 9.4, 12.5]|
 |    H3|01-May-2021|15-Dec-2021| 0.033 [0.0313, 0.0346]|33.4 [29.4, 37.3]|
-|    H4|21-Jan-2022|01-Jun-2023| 0.015 [0.0148, 0.0155]|21.6 [20.1, 23.0]|
-|    H5|01-Jul-2023|11-Sep-2023| 0.005 [0.0028, 0.0073]|21.4 [-24.6, 67.3]|
+|    H4|21-Jan-2022|01-Apr-2023| 0.015 [0.0148, 0.0156]|21.8 [20.3, 23.4]|
+|    H5|01-May-2023|11-Sep-2023| 0.005 [0.0045, 0.0060]|26.8 [15.5, 38.2]|
 
 Reference 2 discusses the changing transfer function from wastewater concentration to clinical cases and mortality (H1 to H2) and speculates about possible causes.  Changing clinical practice and evolving disease demographics are mentioned.
 

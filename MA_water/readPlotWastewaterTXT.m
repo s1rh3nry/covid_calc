@@ -1,22 +1,32 @@
 function [water] = readPlotWastewaterTXT(fname)
 
 % Read messy data extracted from PDF table via e.g.
-% pdftotext -table -f 16 -l 18 MWRAData20230918-data.pdf 20230918.txt
-% sed -i 's/\f//g' 20230918.txt
+% pdftotext -layout -f 3 MWRAData20230918-data.pdf 20230918.txt
+% sed -i 's/\f//g' 20230918.txt       # strip FF char
+% sed -i "s/^[ \t]*//" 20230918.txt   # strip leading spaces
+% 
+% This results in not-quite-fixed-width text data.
 %
 % Clean data used to be available on github.  Now there is a less useful 
-% CDC page with unitless numbers.  MWRA data still has units.  Is it normalized?
+% CDC page with unitless numbers.  MWRA data still has units and matches earlier 
+% Biobot data.
 %
 % Source:
 % https://www.mwra.com/biobot/biobotdata.htm
 
 name = 'MWRA Deer Island';
-pos = [1 10;  14 20; 20 27;];
+
+% min/max line length
 minL = 28;
 maxL = 60;
+
+% filter time for debugging
 tMin = 0*datenum([2023 4 1]);
 tMax = 10*datenum([2023 5 1]);
-targetCol = 18; % typical end of 1st reading
+
+targetCol = 21; % typical end pos of 1st value
+dateWidth = 10;
+h = []; % for histogram
 
 t = [];
 n = [];
@@ -29,14 +39,12 @@ if f <= 0
 end
 
 nlines = 1;
-conc = [0 0];
 
 while ~feof(f)
   s = fgetl(f);
   
   % long enough?
   if length(s) < minL
-    length(s);
     continue;
   end
 
@@ -47,7 +55,7 @@ while ~feof(f)
   
   % extract date
   try
-    tstr = s(1:pos(1,2));
+    tstr = s(1:dateWidth);
     tt = datenum(tstr);
     if tt < tMin || tt > tMax
       continue
@@ -62,19 +70,19 @@ while ~feof(f)
   sp = strfind(s, ' ');
   s = s(sp(1):end);
   
-  % find start/end of number positions in string
+  % find start/end pos of number fields in string
   nums = [];
   for i = 2:length(s)
-    if isdigit(s(i)) && isspace(s(i-1))
+    if isdigit(s(i)) && isspace(s(i-1)) %start
        nums = [nums; i 0];
     end
     
-    if isdigit(s(i-1)) && isspace(s(i))
+    if isdigit(s(i-1)) && isspace(s(i)) %end
        nums(end,2) = i-1;
     end
   end
   
-  if nums(end,2) == 0
+  if nums(end,2) == 0 %add final end
     nums(end,2) = length(s);
   end
   
@@ -82,16 +90,22 @@ while ~feof(f)
   % this is needed because column widths vary
   [m1 i1] = min(abs(nums(:,2)-targetCol));
   
+  h = [h nums(i1,2)]; % for stats/histogram
+  
+  % convert numbers in string, beginning with nearest-to-target
   numbers = sscanf(s(nums(i1,1):end), ' %d');
-  conc = numbers(1:2);
 
-  if length(conc) == 2
+  if m1 >= 4
+    printf('%s %s -- deviation = %d\n', tstr, s, m1);
+    numbers'
+  end
+  
+  if length(numbers) >= 2
     t(nlines) = tt;
-    n(nlines) = mean(conc);
+    n(nlines) = mean(numbers(1:2));
     nlines += 1;
   end
 end
-
 
 fclose(f);
 
@@ -115,3 +129,16 @@ title('Boston-area wastewater SARS-CoV-2 RNA concentration');
 legend(sprintf('%s', name), 'Location', 'SouthEast');
 ylabel('RNA concentration [counts/ml]');
 grid on;
+
+% print stats
+mid = (min(h)+max(h))/2;
+unc = (max(h)-min(h))/2;
+
+printf('%d number positions (%d days)\n mean=%.2f, median=%d, %.1f +/- %.1f [%d...%d]\n', ...
+        length(h), length(water.t), mean(h), median(h), mid, unc, min(h), max(h))
+%return
+
+%for code development: plot histogram of number positions
+clf;
+bar(hist(h, 1:30));
+

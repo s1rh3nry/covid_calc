@@ -10,15 +10,16 @@ echo
 
 cd data
 
-URL=https://www.mass.gov/info-details/covid-19-response-reporting
-FNAME="MA/covid-19-response-reporting.html"
-wget -q $URL -O $FNAME
-[ -s $FNAME ] || echo "$FNAME is empty. ABORT."
-[ -s $FNAME ] || exit 1
+#URL=https://www.mass.gov/info-details/covid-19-response-reporting
+#FNAME="MA/covid-19-response-reporting.html"
+#wget -q $URL -O $FNAME
+#[ -s $FNAME ] || echo "$FNAME is empty. ABORT."
+#[ -s $FNAME ] || exit 1
 
-#extract data file URL
-URL2=`awk -e '$0 ~ /raw-data/ {print $0}' $FNAME | awk -F'"' '{print $2}'`
-URL=https://www.mass.gov$URL2
+##extract data file URL
+#URL2=`awk -e '$0 ~ /raw-data/ {print $0}' $FNAME | awk -F'"' '{print $2}'`
+
+URL=https://www.mass.gov/media/2642851/download
 
 echo "Get mortality data from $URL"
 echo
@@ -30,7 +31,7 @@ MOD=`date -r $FNAME`
 echo $FNAME $(stat --format=%s "$FNAME") bytes, modified $MOD
 
 FNAME2="MA/mortality.csv"
-python3 ../util/extractSheet.py -i $FNAME -o $FNAME2 -n DateofDeath -c 2
+python3 ../util/extractSheet.py -i $FNAME -o $FNAME2 -n "Weekly Cases and Deaths" -c 4
 echo $FNAME2 $(stat --format=%s "$FNAME2") bytes, modified $MOD
 
 # get wastewater data

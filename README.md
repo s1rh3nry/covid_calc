@@ -8,11 +8,11 @@ Each model is a single-pole [linear time-invariant system](https://en.wikipedia.
 
 | Model|       From|         To|      Deaths per RNA/ml|     Delay (days)|
 |------|-----------|-----------|-----------------------|-----------------|
-|    H1|10-Mar-2020|01-Jun-2020| 0.563 [0.5365, 0.5899]|15.5 [13.5, 17.5]|
-|    H2|01-Sep-2020|01-Mar-2021| 0.059 [0.0571, 0.0603]|11.0 [ 9.4, 12.5]|
-|    H3|01-May-2021|15-Dec-2021| 0.033 [0.0313, 0.0346]|33.4 [29.4, 37.3]|
-|    H4|21-Jan-2022|01-Apr-2023| 0.015 [0.0148, 0.0156]|21.8 [20.3, 23.4]|
-|    H5|01-May-2023|11-Sep-2023| 0.005 [0.0045, 0.0060]|26.8 [15.5, 38.2]|
+|    H1|04-Mar-2020|01-Jun-2020| 0.600 [0.5688, 0.6311]|21.5 [18.8, 24.2]|
+|    H2|01-Sep-2020|01-Mar-2021| 0.060 [0.0589, 0.0603]|14.6 [13.8, 15.4]|
+|    H3|01-May-2021|15-Dec-2021| 0.032 [0.0311, 0.0331]|38.8 [36.0, 41.5]|
+|    H4|21-Jan-2022|01-Apr-2023| 0.016 [0.0156, 0.0162]|23.8 [22.7, 25.0]|
+|    H5|01-May-2023|10-Feb-2024| 0.005 [0.0052, 0.0056]|34.2 [29.7, 38.7]|
 
 Reference 2 discusses the changing transfer function from wastewater concentration to clinical cases and mortality (H1 to H2) and speculates about possible causes.  Changing clinical practice and evolving disease demographics are mentioned.
 
@@ -31,9 +31,9 @@ plotMWRA
 ```
 (Tested on versions 4.2.2, 5.2.0 and 6.4.0)
 ### Data sources
-Wastewater (blue data points above) from Biobot Analytics (this github repository is no longer available).  
+Wastewater (Suffolk County, MA) from Biobot Analytics (this github repository is no longer available).  
 
-[Current wastewater data](https://www.mwra.com/biobot/biobotdata.htm) (red curve above).
+[Current wastewater data](https://www.mwra.com/biobot/biobotdata.htm) (MWRA Deer Island).
 
 [Mortality from the State of Massachusetts](https://www.mass.gov/info-details/covid-19-response-reporting) - download *COVID-19 Raw Data*, updated weekly.  Note that year 2020 data is being changed in 2023.
 
